@@ -41,6 +41,14 @@
   <url-pattern>/profile</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>als</servlet-name>
+  <servlet-class>controller.AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>als</servlet-name>
+  <url-pattern>/adminloginservlet</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>
