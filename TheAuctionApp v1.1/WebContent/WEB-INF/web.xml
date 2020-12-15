@@ -50,5 +50,14 @@
   <url-pattern>/adminloginservlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>los</servlet-name>
+  <servlet-class>controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>los</servlet-name>
+  <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
