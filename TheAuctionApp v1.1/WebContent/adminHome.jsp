@@ -17,6 +17,8 @@ if(session.getAttribute("adminName")==null||session.getAttribute("adminPassword"
 <h1>Welcome,  <% out.println(session.getAttribute("adminName")); %> to Admin Panel.</h1>
 
 
+<br><br>
+<h3><a href="addObject.jsp">add object</a></h3>
 
 <br><br><br>
 <h6><a href="./logout">Logout</a></h6>

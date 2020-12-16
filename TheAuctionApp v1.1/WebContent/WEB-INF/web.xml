@@ -59,5 +59,13 @@
   <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>aos</servlet-name>
+  <servlet-class>controller.AddObjectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>aos</servlet-name>
+  <url-pattern>/addobject</url-pattern>
+  </servlet-mapping>
   
 </web-app>
