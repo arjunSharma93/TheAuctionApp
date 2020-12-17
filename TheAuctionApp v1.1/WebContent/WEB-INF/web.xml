@@ -67,5 +67,21 @@
   <servlet-name>aos</servlet-name>
   <url-pattern>/addobject</url-pattern>
   </servlet-mapping>
+  <servlet>
+  <servlet-name>vis</servlet-name>
+  <servlet-class>controller.ViewItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>vis</servlet-name>
+  <url-pattern>/viewitem</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>ris</servlet-name>
+  <servlet-class>controller.RemoveItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ris</servlet-name>
+  <url-pattern>/removeitem</url-pattern>
+  </servlet-mapping>
   
 </web-app>

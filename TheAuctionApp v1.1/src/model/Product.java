@@ -5,6 +5,7 @@ public class Product {
 	private String productName;
 	private String productDescription;
 	private String minimumBid;
+	private int productid;
 	
 	public String getProductName() {
 		return productName;
@@ -25,6 +26,13 @@ public class Product {
 	}
 	public void setMinimumBid(String minimumBid) {
 		this.minimumBid = minimumBid;
+	}
+	
+	public int getProductid() {
+		return productid;
+	}
+	public void setProductid(int productid) {
+		this.productid = productid;
 	}
 	
 	@Override

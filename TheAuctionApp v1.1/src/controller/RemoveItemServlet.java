@@ -12,43 +12,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Product;
-
-public class AddObjectServlet extends HttpServlet {
+public class RemoveItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Product product = (Product) request.getAttribute("product");
-		System.out.println(product);
-		
+		String productid = request.getParameter("productid");
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/namedisplay?useTimezone=true&serverTimezone=UTC","root","");
-			PreparedStatement ps = con.prepareStatement("insert into productTab (productName, productDescription, minimumBid) values(?, ?, ?)");
-			ps.setString(1, product.getProductName());
-			ps.setString(2, product.getProductDescription());
-			ps.setString(3, product.getMinimumBid());
+			PreparedStatement ps = con.prepareStatement("DELETE FROM producttab WHERE id='"+productid+"'");
 			int i = ps.executeUpdate();
-			if(i!=0) {
-				/*response.getWriter().println("<html><body>");  
-				response.getWriter().println("product added successfully");
-				response.getWriter().println("to add again, <a href= 'addObject.jsp'>click here</a>");
-				response.getWriter().println("to go back, <a href= 'adminHome.jsp'>click here</a>");
-				response.getWriter().println("</body></html>");*/
-				
-				request.setAttribute("acknowledge", "product added successfully");
+			if(i != 0) {
+				request.setAttribute("acknowledge", "item removed");
 				RequestDispatcher rd = request.getRequestDispatcher("/viewitem");
 				rd.forward(request, response);
-				con.close();
 			}
 			else {
-				request.setAttribute("acknowledge", "something wrong, try again");
+				request.setAttribute("acknowledge", "something worng");
 				RequestDispatcher rd = request.getRequestDispatcher("/viewitem");
 				rd.forward(request, response);
-				con.close();
 			}
-			
 		}catch(Exception e) {
 			response.getWriter().println(e.getMessage());
 			e.printStackTrace();
