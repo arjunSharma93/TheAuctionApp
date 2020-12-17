@@ -19,8 +19,9 @@ if(session.getAttribute("adminName")==null||session.getAttribute("adminPassword"
 
 <br><br>
 <h3><a href="addObject.jsp">add object</a></h3>
-
-<br><br><br>
+<br><br>
+<h3><a href="./viewitem">view added item</a></h3>
+<br><br>
 <h6><a href="./logout">Logout</a></h6>
 </body>
 </html>
