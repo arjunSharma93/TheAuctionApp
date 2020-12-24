@@ -15,9 +15,14 @@ if(session.getAttribute("email") == null || session.getAttribute("password")==nu
 
 <jsp:include page="/profile"></jsp:include>
 <pre>
-Name: <%out.println(request.getAttribute("name")); %>
-
-Mobile: <%out.println(request.getAttribute("mobile")); %>
+<table border="1">
+<tr>
+<td>Name</td><td> <%out.println(request.getAttribute("name")); %></td>
+</tr>
+<tr>
+<td>Mobile</td><td> <%out.println(request.getAttribute("mobile")); %></td>
+</tr>
+</table>
 </pre>
 </body>
 </html>

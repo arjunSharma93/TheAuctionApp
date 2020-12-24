@@ -9,11 +9,14 @@ import java.sql.ResultSet;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
+
+import model.User;
+
+
+
 
 public class RegistrationFilter implements Filter {
 	
@@ -24,8 +27,10 @@ public class RegistrationFilter implements Filter {
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		String email = request.getParameter("email");
-		String mobile = request.getParameter("mobile");
+		  /*String email = request.getParameter("email");
+		  String mobile = request.getParameter("mobile");*/
+		
+		User user = (User) request.getAttribute("user");
 		
 		int rowCount = 0;
 		int loopCount = 0;
@@ -41,7 +46,7 @@ public class RegistrationFilter implements Filter {
 			ps = con.prepareStatement("select * from tab");
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				if(email.equals(rs.getString("email"))||mobile.equals(rs.getString("mobile"))) {
+				if(user.getEmail().equals(rs.getString("email"))||user.getMobile().equals(rs.getString("mobile"))) {
 					response.getWriter().println("<html><body>");  
 					response.getWriter().println("<a href = "+"index.html>"+"email or mobile already exist, please login</a>");  
 					response.getWriter().println("</body></html>");

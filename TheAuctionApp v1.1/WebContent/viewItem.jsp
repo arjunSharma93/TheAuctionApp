@@ -19,12 +19,18 @@ ArrayList<Product> productList;
 productList = (ArrayList<Product>)request.getAttribute("productList");
 for(Product p: productList){
 %>
+<table border="1">
+<tr>
+<td>Product Name</td>
+<td>Product Description</td>
+<td>Product Minimum Bid</td>
+</tr>
 <tr> 
-<td><%=p.getProductName()%></td>  >
-<td><%=p.getProductDescription()%></td>  >
+<td><%=p.getProductName()%></td>
+<td><%=p.getProductDescription()%></td>
 <td><%=p.getMinimumBid()%></td>
 </tr>
-<br>
+</table>
 <br>
 <%}%>
 </body>

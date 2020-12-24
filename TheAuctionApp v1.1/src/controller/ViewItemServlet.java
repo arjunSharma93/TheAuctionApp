@@ -32,7 +32,7 @@ public class ViewItemServlet extends HttpServlet {
 				product.setProductName(rs.getString("productName"));
 				product.setProductDescription(rs.getString("productDescription"));
 				product.setMinimumBid(rs.getString("minimumBid"));
-				product.setProductid(Integer.parseInt(rs.getString(1)));
+				product.setProductid(rs.getString("id"));
 				
 				productList.add(product);
 			}
@@ -50,14 +50,17 @@ public class ViewItemServlet extends HttpServlet {
 		dataRenderingFromDatabase(request, response, productList);
 		request.setAttribute("productList", productList);
 		
-		if(session.getAttribute("adminName")!=null && session.getAttribute("adminPassword")!=null) {
+		if(session.getAttribute("role").equals("admin")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/adminViewItem.jsp");
 			rd.forward(request, response);
 		}
-		else if(session.getAttribute("email")!=null||session.getAttribute("password")!=null) {
+		else if(session.getAttribute("role").equals("user")) {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/viewItem.jsp");
 			rd.forward(request, response);
+		}
+		else {
+			response.sendRedirect("index.html");
 		}
 		
 		
@@ -70,9 +73,12 @@ public class ViewItemServlet extends HttpServlet {
 		dataRenderingFromDatabase(request, response, productList);
 		request.setAttribute("productList", productList);
 		
-		if(session.getAttribute("adminName")!=null||session.getAttribute("adminPassword")!=null) {
+		if(session.getAttribute("role").equals("admin")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/adminViewItem.jsp");
 			rd.forward(request, response);
+		}
+		else {
+			response.sendRedirect("index.html");
 		}
 		
 		

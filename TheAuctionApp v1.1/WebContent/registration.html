@@ -7,14 +7,34 @@
 <body>
 <h1>Registration From</h1>
 
-<form action="./reg" method="post">
+<form action="formToUserBean.jsp" method="post">
 <pre>
+<table>
+<tr></tr>
+<tr></tr>
+<td>
 Name: 		<input type="text" name="name" placeholder="Enter your name" required>
+</td>
+<tr></tr>
+<tr></tr>
+<td>
 Email: 		<input type="text" name="email" placeholder="Enter your email" required>
+</td>
+<tr></tr>
+<tr></tr>
+<td>
 Mobile: 	<input type="text" name="mobile" placeholder="Enter your mobile no" required>
+</td>
+<tr></tr>
+<tr></tr>
+<td>
 Password: 	<input type="password" name="password" placeholder="Enter your password" required>
-			
-						<input type="submit" value="Register">
+</td>
+						<input type="hidden" name="role" value="user">
+<tr></tr>
+<tr></tr>			
+<td></td>					<td> <input type="submit" value="Register"> </td>
+</table>
 </pre>
 </form>
 </body>

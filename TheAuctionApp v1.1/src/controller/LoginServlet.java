@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,8 +39,16 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("email", email);
 					session.setAttribute("password", password);
 					session.setAttribute("name", rs.getString("name"));
-					response.sendRedirect("home.jsp");
-					break;
+					session.setAttribute("role", rs.getString("role"));
+					
+					if(session.getAttribute("role").equals("user")) {
+						response.sendRedirect("home.jsp");
+						break;
+					}
+					else if(session.getAttribute("role").equals("admin")) {
+						response.sendRedirect("adminHome.jsp");
+						break;
+					}
 				}
 				else {
 					loopCount += 1;

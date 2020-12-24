@@ -39,5 +39,10 @@ public class RemoveItemServlet extends HttpServlet {
 		}
 		
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/viewitem");
+		rd.forward(request, response);
+	}
 
 }

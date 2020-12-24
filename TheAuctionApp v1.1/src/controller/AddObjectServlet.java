@@ -31,11 +31,6 @@ public class AddObjectServlet extends HttpServlet {
 			ps.setString(3, product.getMinimumBid());
 			int i = ps.executeUpdate();
 			if(i!=0) {
-				/*response.getWriter().println("<html><body>");  
-				response.getWriter().println("product added successfully");
-				response.getWriter().println("to add again, <a href= 'addObject.jsp'>click here</a>");
-				response.getWriter().println("to go back, <a href= 'adminHome.jsp'>click here</a>");
-				response.getWriter().println("</body></html>");*/
 				
 				request.setAttribute("acknowledge", "product added successfully");
 				RequestDispatcher rd = request.getRequestDispatcher("/viewitem");

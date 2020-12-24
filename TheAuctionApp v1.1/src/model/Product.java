@@ -5,7 +5,7 @@ public class Product {
 	private String productName;
 	private String productDescription;
 	private String minimumBid;
-	private int productid;
+	private String productid;
 	
 	public String getProductName() {
 		return productName;
@@ -28,16 +28,16 @@ public class Product {
 		this.minimumBid = minimumBid;
 	}
 	
-	public int getProductid() {
+	public String getProductid() {
 		return productid;
 	}
-	public void setProductid(int productid) {
+	public void setProductid(String productid) {
 		this.productid = productid;
 	}
 	
 	@Override
 	public String toString() {
-		return("name= "+getProductName()+" description= "+getProductDescription()+" minimumBid= "+getMinimumBid());
+		return("name= "+getProductName()+", description= "+getProductDescription()+", minimumBid= "+getMinimumBid()+", product id= "+getProductid());
 	}
 	
 }

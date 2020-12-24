@@ -12,6 +12,8 @@
   <filter-mapping>
   <filter-name>rsfilter</filter-name>
   <url-pattern>/reg</url-pattern>
+  <dispatcher>FORWARD</dispatcher>
+  <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
   
   <servlet>
@@ -67,6 +69,7 @@
   <servlet-name>aos</servlet-name>
   <url-pattern>/addobject</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   <servlet-name>vis</servlet-name>
   <servlet-class>controller.ViewItemServlet</servlet-class>
@@ -75,6 +78,7 @@
   <servlet-name>vis</servlet-name>
   <url-pattern>/viewitem</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   <servlet-name>ris</servlet-name>
   <servlet-class>controller.RemoveItemServlet</servlet-class>
@@ -84,4 +88,57 @@
   <url-pattern>/removeitem</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>plfr</servlet-name>
+  <servlet-class>controller.ProductListForRoom</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>plfr</servlet-name>
+  <url-pattern>/productlistforroom</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>cr</servlet-name>
+  <servlet-class>controller.CreateRoom</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>cr</servlet-name>
+  <url-pattern>/createroom</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>rms</servlet-name>
+  <servlet-class>controller.RoomServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>rms</servlet-name>
+  <url-pattern>/roomservlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>ubt</servlet-name>
+  <servlet-class>controller.UpdateBidTab</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ubt</servlet-name>
+  <url-pattern>/updatebidtab</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>dbt</servlet-name>
+  <servlet-class>controller.DeleteBidTab</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>dbt</servlet-name>
+  <url-pattern>/deletebidtab</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>db</servlet-name>
+  <servlet-class>controller.DetailsBid</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>db</servlet-name>
+  <url-pattern>/detailsbid</url-pattern>
+  </servlet-mapping>
 </web-app>
